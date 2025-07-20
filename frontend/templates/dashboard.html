@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Security Incident Dashboard</h1>
+    <table>
+        <thead>
+            <tr><th>Type</th><th>Description</th><th>Timestamp</th></tr>
+        </thead>
+        <tbody id="incident-table"></tbody>
+    </table>
+
+    <script>
+        fetch("/api/incidents")
+        .then(response => response.json())
+        .then(data => {
+            let table = document.getElementById("incident-table");
+            data.forEach(incident => {
+                let row = "<tr>";
+                row += "<td>" + incident[0] + "</td>";
+                row += "<td>" + incident[1] + "</td>";
+                row += "<td>" + incident[2] + "</td>";
+                row += "</tr>";
+                table.innerHTML += row;
+            });
+        });
+    </script>
+</body>
+</html>

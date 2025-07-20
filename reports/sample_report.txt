@@ -1,0 +1,5 @@
+
+Incident: Brute-force Attempt
+Detected: 2025-07-20 10:01
+Description: Repeated LOGIN_FAILED entries from IP 10.0.0.5
+Response: User account locked, IP blocked at firewall.
